@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../db')
 const Games = sequelize.import('../models/games');
 
-router.get('/getall', (req, res) => {
+router.get('/', (req, res) => {
     Games.findAll()
         .then(Games => res.status(200).json(Games))
         .catch(err => res.status(500).json({error: err.errors[0].message}))
