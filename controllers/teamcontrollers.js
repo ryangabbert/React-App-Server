@@ -2,6 +2,11 @@ const router = require('express').Router();
 const sequelize = require('../db')
 const Team = sequelize.import('../models/team');
 
+router.get('/', (req, res) => {
+    Team.findAll()
+        .then(games => res.status(200).json(games))
+        .catch(err => res.status(500).json({error: err.errors[0].message}))
+})
 
 router.post('/createteam', (req, res) => {
    Team.create({
