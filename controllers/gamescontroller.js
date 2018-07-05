@@ -47,7 +47,7 @@ router.put('/updategame/:id', (req, res) => {
     });
     router.delete('/delete/:id', function(req, res) {
         var gamesDelete = req.params.id; //3
-        var gamesId = req.user.id; //4
+        var gamesId = req.Games.id; //4
     
         Games
             .destroy({ //5
