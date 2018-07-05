@@ -14,7 +14,7 @@ router.post('/createteam', (req, res) => {
         email: req.body.Team.email,
         position: req.body.Team.position
     })
-    .then(team => res.status(200).json(team))
+    .then(Team => res.status(200).json(Team))
     .catch(err => res.status(500).json({error: err.errors[0].message}))
 }) 
 module.exports = router;
