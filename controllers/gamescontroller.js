@@ -16,7 +16,7 @@ router.post('/creategame', (req, res) => {
         description: req.body.Games.description
 
     })
-    .then(games => res.status(200).json(games))
+    .then(Games => res.status(200).json(Games))
     .catch(err => res.status(500).json({error: err.errors[0].message}))
 }) 
 router.put('/updategame/:id', (req, res) => {
