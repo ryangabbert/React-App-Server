@@ -53,7 +53,7 @@ router.put('/updategame/:id', (req, res) => {
             .destroy({ 
                 where: { id: GamesDelete, owner: gamesId } 
             }).then(
-                function deleteLogSuccess(gamesDelete){ 
+                function deleteLogSuccess(GamesDelete){ 
                     res.send("you removed a log");
                 },
                 function deleteLogError(err){ 
