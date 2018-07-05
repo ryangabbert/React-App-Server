@@ -25,6 +25,7 @@ router.put('/updategame/:id', (req, res) => {
     
         Games
             .update({ //5
+                id: req.body.Games.id,
                 location_of_game: req.body.Games.location_of_game,
                 time_of_game: req.body.Games.time_of_game,
                 date_of_game: req.body.Games.date_of_game,
@@ -34,6 +35,7 @@ router.put('/updategame/:id', (req, res) => {
             ).then(
                 function updateSuccess(updatedLog) { //8
                     res.json({
+                        id: req.body.Games.id,
                         location_of_game: req.body.Games.location_of_game,
                         time_of_game: req.body.Games.time_of_game,
                         date_of_game: req.body.Games.date_of_game,
