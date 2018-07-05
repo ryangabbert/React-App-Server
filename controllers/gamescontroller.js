@@ -45,13 +45,12 @@ router.put('/updategame/:id', (req, res) => {
                 }
             )
     });
-    router.delete('/delete/:id', function(req, res) {
-        var GamesDelete = req.params.id; 
+    router.delete('/delete', function(req, res) {
         var gamesId = req.Games.id; 
     
         Games
             .destroy({ 
-                where: { id: GamesDelete, owner: gamesId } 
+                where: { id: gamesId } 
             }).then(
                 function deleteLogSuccess(GamesDelete){ 
                     res.send("you removed a log");
