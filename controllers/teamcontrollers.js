@@ -4,7 +4,7 @@ const Team = sequelize.import('../models/team');
 
 router.get('/', (req, res) => {
     Team.findAll()
-        .then(games => res.status(200).json(games))
+        .then(team => res.status(200).json(team))
         .catch(err => res.status(500).json({error: err.errors[0].message}))
 })
 
