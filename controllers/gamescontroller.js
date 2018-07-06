@@ -24,16 +24,16 @@ router.put('/updategame/:id', (req, res) => {
         var Games = req.body.Games.item; //4
     
         Games
-            .update({ //5
+            .update({ 
                 id: req.body.Games.id,
                 location_of_game: req.body.Games.location_of_game,
                 time_of_game: req.body.Games.time_of_game,
                 date_of_game: req.body.Games.date_of_game,
                 description: req.body.Games.description
             },
-            {where: {id: games}} //7
+            {where: {id: games}} 
             ).then(
-                function updateSuccess(updatedLog) { //8
+                function updateSuccess(updatedGames) { 
                     res.json({
                         id: req.body.Games.id,
                         location_of_game: req.body.Games.location_of_game,
@@ -42,7 +42,7 @@ router.put('/updategame/:id', (req, res) => {
                         description: req.body.Games.description
                     });            
                 },
-                function updateError(err){ //9
+                function updateError(err){ 
                     res.send(500, err.message);
                 }
             )
