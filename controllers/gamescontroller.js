@@ -19,28 +19,24 @@ router.post('/creategame', (req, res) => {
     .then(Games => res.status(200).json(Games))
     .catch(err => res.status(500).json({error: err.errors[0].message}))
 }) 
-router.put('/updategame/:id', (req, res) => {
-        var games = req.params.id; 
-        var Location = req.body.Games.location_of_game; 
-        var Time = req.body.Games.time_of_game; 
-        var Date = req.body.Games.date_of_game; 
-        var Description = req.body.Games.description; 
-
+router.put('/updategame', (req, res) => {
+        var games = req.body.Games.id; 
         Games
             .update({ 
-                Location: location_of_game,
-                Time: time_of_game,
-                Date: date_of_game,
-                Description: description
+                location_of_game: req.body.Games.location_of_game,
+                time_of_game: req.body.Games.time_of_game,
+                date_of_game: req.body.Games.date_of_game,
+                description: req.body.Games.description
             },
             {where: {id: games}} 
             ).then(
-                function updateSuccess(updatedGames) { 
+                // updatedGames
+                function updateSuccess() { 
                     res.json({
-                        Location: location_of_game,
-                        Time: time_of_game,
-                         Date: date_of_game,
-                        Description: description
+                        location_of_game: req.body.Games.location_of_game,
+                        time_of_game: req.body.Games.time_of_game,
+                        date_of_game: req.body.Games.date_of_game,
+                        description: req.body.Games.description
                     });            
                 },
                 function updateError(err){ 
